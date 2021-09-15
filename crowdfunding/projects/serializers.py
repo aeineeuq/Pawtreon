@@ -10,9 +10,9 @@ class ProjectSerializer(serializers.Serializer):
     image = serializers.URLField()
     is_open = serializers.BooleanField()
     date_created = serializers.DateTimeField()
-    owner = serializers.ReadOnlyField(source='owner.id')
     location = serializers.CharField(max_length=200)
-
+    owner = serializers.ReadOnlyField(source='owner.id')
+    
     def create(self, validated_data):
         return Project.objects.create(**validated_data)
 
