@@ -3,10 +3,7 @@ from rest_framework.authtoken.views import obtain_auth_token
 
 urlpatterns = [
     path('', include('projects.urls')),
-<<<<<<< Updated upstream
-=======
     path('', include('users.urls')),
     path('api-auth/', include('rest_framework.urls')),
     path('api-token-auth/', obtain_auth_token, name='api_token_auth')
->>>>>>> Stashed changes
 ]

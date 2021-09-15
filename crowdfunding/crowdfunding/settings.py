@@ -40,10 +40,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'users.apps.UsersConfig',
 ]
 
-<<<<<<< Updated upstream
-=======
+
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': 
     ['rest_framework.authentication.TokenAuthentication',
@@ -53,7 +53,6 @@ REST_FRAMEWORK = {
 
 AUTH_USER_MODEL = 'users.CustomUser'
 
->>>>>>> Stashed changes
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
