@@ -1,10 +1,10 @@
 from django.http import Http404
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from rest_framework import status
+from rest_framework import status, permissions
 from .models import CustomUser
-from .serializers import CustomUserSerializer
-
+from .serializers import CustomUserSerializer, CustomUserDetailSerializer
+from .permissions import IsUserOrReadOnly
 
 # /users
 class CustomUserList(APIView):
@@ -24,7 +24,8 @@ class CustomUserList(APIView):
 
 # /users/<pk>
 class CustomUserDetail(APIView):
-   
+    permission_classes = [IsUserOrReadOnly
+    ]   
     # helper method for getting a user and raising a 404 if that user does not exist
     def get_object(self, pk):
         # try getting the user with the specified pk
@@ -40,3 +41,23 @@ class CustomUserDetail(APIView):
         user = self.get_object(pk)
         serializer = CustomUserSerializer(user)
         return Response(serializer.data)
+ 
+         
+    def put(self, request, pk):
+        user = self.get_object(pk)
+        data = request.data
+        serializer = CustomUserDetailSerializer(
+            instance=user,
+            data=data,
+            partial=True
+        )
+        if serializer.is_valid():
+            serializer.save()
+            return Response(
+                serializer.data,
+                status=status.HTTP_201_CREATED
+            )
+        return Response(
+            serializer.errors,
+            status = status.HTTP_400_BAD_REQUEST
+        )   
