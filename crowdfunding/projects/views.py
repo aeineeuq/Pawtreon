@@ -7,6 +7,10 @@ from .serializers import ProjectSerializer, PledgeSerializer, ProjectDetailSeria
 from .permissions import IsOwnerOrReadOnly
 
 class PledgeList(APIView):
+    permission_classes = [
+        permissions.IsAuthenticatedOrReadOnly
+    ]
+    
     def get(self, request):
         pledges = Pledge.objects.all()
         serializer = PledgeSerializer(pledges, many=True)
