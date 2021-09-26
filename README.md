@@ -21,8 +21,9 @@ Pawtreon MVP (Minimum Viable Product)
 
 Pawtreon API Spec
 ---------
-![Pawtreon API Spec]([DRF Pawtreon/API Spec.png](https://raw.githubusercontent.com/aeineeuq/SheCodes-Projects/main/DRF%20Pawtreon/API%20Spec.png)?raw=true)
+![Pawtreon API Spec](https://raw.githubusercontent.com/aeineeuq/SheCodes-Projects/main/DRF%20Pawtreon/API%20Spec.png)
 
 Pawtreon Database Schema
-![Pawtreon DB Schema]([DRF Pawtreon/Database Schema.PNG](https://raw.githubusercontent.com/aeineeuq/SheCodes-Projects/main/DRF%20Pawtreon/Database%20Schema.PNG)?raw=true)
+
+![Pawtreon DB Schema](https://raw.githubusercontent.com/aeineeuq/SheCodes-Projects/main/DRF%20Pawtreon/Database%20Schema.PNG)
 
